@@ -33,10 +33,7 @@ public class Customer {
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
 
-            frequentRenterPoints++;
-            if ((each.get_movie().get_priceCode() == Movie.NEW_RELEASE) && each.get_daysRented() > 1) {
-                frequentRenterPoints++;
-            }
+            frequentRenterPoints += each.getFrequentRenterPoints();
             result += "\t" + each.get_movie().get_title() + "\t" + String.valueOf(each.getCharge()) + "\n";
             totalAmount += each.getCharge();
         }
